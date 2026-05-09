@@ -6,7 +6,7 @@
 <meta name="description" content="Aarón Esteve — Composer.">
 <title>Aarón Esteve — Composer</title>
 <meta name="robots" content="index, follow">
-<meta name="google-site-verification" content="8oiDF-fMVEWGGYSrm05tJV3ogZyXgdzLwTXP3M2Db8A" />
+ <meta name="google-site-verification" content="8oiDF-fMVEWGGYSrm05tJV3ogZyXgdzLwTXP3M2Db8A" />
 <link rel="icon" type="image/png" href="circle-logo.png">
 <link rel="apple-touch-icon" href="circle-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -284,11 +284,11 @@
   .about-photo-wrap {
     margin-top: 2.5rem;
     overflow: hidden;
-    max-width: 100%;
+    max-width: 420px;
   }
 
   .about-photo {
-    width: 70%;
+    width: 100%;
     display: block;
     filter: grayscale(15%) contrast(1.02);
   }
@@ -765,11 +765,48 @@
     letter-spacing: 0.05em;
   }
 
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--ink);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
   /* MOBILE */
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
-    .nav-links { gap: 1.5rem; }
-    .nav-links a { font-size: 0.68rem; }
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(245,242,237,0.97);
+      backdrop-filter: blur(12px);
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      z-index: 150;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1.1rem; letter-spacing: 0.12em; }
     section { padding: 5rem 1.5rem; }
     .hero { padding: 0 1.5rem 4rem; }
     .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
@@ -790,7 +827,10 @@
     <img src="circle-logo.png" alt="Aarón Esteve" class="nav-logo-img">
     Aarón Esteve
   </a>
-  <ul class="nav-links">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#" onclick="showTab('about', event)">About</a></li>
     <li><a href="#" onclick="showTab('catalogue', event)">Catalogue</a></li>
     <li><a href="#" onclick="showTab('highlights', event)">News</a></li>
@@ -1376,8 +1416,21 @@
 <script>
 const TABS = ['about', 'catalogue', 'highlights', 'commissions', 'press', 'contact'];
 
+function toggleMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+}
+
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('nav-links').classList.remove('open');
+}
+
 function showTab(id, e) {
   if (e) e.preventDefault();
+  closeMenu();
 
   // Hide all panels
   TABS.forEach(t => {
