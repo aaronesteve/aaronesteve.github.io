@@ -526,6 +526,80 @@
     color: var(--ink-mid);
   }
 
+  /* PRESS */
+  .press-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .press-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 0.2rem 1rem;
+    padding: 1.6rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+  }
+
+  .press-item:first-child { border-top: 0.5px solid var(--rule); }
+  .press-item:hover .press-title { color: var(--accent); }
+
+  .press-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .press-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .press-date {
+    font-size: 0.72rem;
+    color: var(--ink-light);
+  }
+
+  .press-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--ink);
+    grid-column: 1;
+    grid-row: 2;
+    transition: color 0.2s;
+    line-height: 1.3;
+  }
+
+  .press-source {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0.2rem;
+  }
+
+  .press-arrow {
+    font-size: 1rem;
+    color: var(--ink-light);
+    grid-column: 2;
+    grid-row: 1 / 4;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .press-item:hover .press-arrow {
+    color: var(--accent);
+    transform: translateX(3px);
+  }
+
   /* CONTACT */
   #contact {
     background: var(--ink);
@@ -708,6 +782,7 @@
     <li><a href="#" onclick="showTab('catalogue', event)">Catalogue</a></li>
     <li><a href="#" onclick="showTab('highlights', event)">News</a></li>
     <li><a href="#" onclick="showTab('commissions', event)">Commissions</a></li>
+    <li><a href="#" onclick="showTab('press', event)">Press</a></li>
     <li><a href="#" onclick="showTab('contact', event)">Contact</a></li>
   </ul>
 </nav>
@@ -1204,6 +1279,56 @@
 </section>
 </div>
 
+<!-- PRESS -->
+<div class="tab-panel" id="tab-press">
+<section id="press">
+  <p class="section-label">Press</p>
+  <div class="press-list">
+
+    <a class="press-item" href="https://mikrokosmos047.com/2025/07/31/diari-de-la-mostra-sonora-i-lantara-grup-mira-a-la-musica-del-present/" target="_blank">
+      <div class="press-meta">
+        <span class="press-tag">Review · Own work</span>
+        <span class="press-date">2025</span>
+      </div>
+      <h3 class="press-title">Tres formacions sonores — Mostra Sonora</h3>
+      <p class="press-source">Mikrokosmos047</p>
+      <span class="press-arrow">→</span>
+    </a>
+
+    <a class="press-item" href="https://mikrokosmos047.com/2025/02/01/entrevista-a-tres-finalistas-del-xxxv-premio-jovenes-compositores-fundacion-sgae-cndm-alumnos-del-conservatorio-superior-de-musica-joaquin-rodrigo-de-valencia-i/" target="_blank">
+      <div class="press-meta">
+        <span class="press-tag">Interview</span>
+        <span class="press-date">2025</span>
+      </div>
+      <h3 class="press-title">Interview — XXXV Premio Jóvenes Compositores SGAE/CNDM finalists</h3>
+      <p class="press-source">Mikrokosmos047</p>
+      <span class="press-arrow">→</span>
+    </a>
+
+    <a class="press-item" href="https://mikrokosmos047.com/2026/02/16/georges-aperghis-eix-central-dun-presences-2026-daltissim-nivell/" target="_blank">
+      <div class="press-meta">
+        <span class="press-tag">Festival review</span>
+        <span class="press-date">2026</span>
+      </div>
+      <h3 class="press-title">Georges Aperghis, eix central d'un Présences 2026 d'altíssim nivell</h3>
+      <p class="press-source">Mikrokosmos047</p>
+      <span class="press-arrow">→</span>
+    </a>
+
+    <a class="press-item" href="https://mikrokosmos047.com/2026/01/09/les-bienveillantes-dhector-parra-ressenya-discografica/" target="_blank">
+      <div class="press-meta">
+        <span class="press-tag">Discographic review</span>
+        <span class="press-date">2026</span>
+      </div>
+      <h3 class="press-title">Les Bienveillantes de Hèctor Parra — Ressenya discogràfica</h3>
+      <p class="press-source">Mikrokosmos047</p>
+      <span class="press-arrow">→</span>
+    </a>
+
+  </div>
+</section>
+</div>
+
 <!-- CONTACT -->
 <div class="tab-panel" id="tab-contact">
 <section id="contact">
@@ -1233,7 +1358,7 @@
 </footer>
 
 <script>
-const TABS = ['about', 'catalogue', 'highlights', 'commissions', 'contact'];
+const TABS = ['about', 'catalogue', 'highlights', 'commissions', 'press', 'contact'];
 
 function showTab(id, e) {
   if (e) e.preventDefault();
