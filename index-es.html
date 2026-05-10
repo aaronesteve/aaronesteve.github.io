@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aarón Esteve — Compositor.">
+<title>Aarón Esteve — Compositor</title>
+<link rel="icon" type="image/png" href="/circle-logo.png">
+<link rel="apple-touch-icon" href="/circle-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f5f2ed;
+    --ink: #1a1814;
+    --ink-mid: #4a4540;
+    --ink-light: #8a8480;
+    --accent: #2c3e2d;
+    --accent-light: #e8ede8;
+    --rule: rgba(26,24,20,0.12);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Archivo', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(245,242,237,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-mid);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(44,62,45,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(26,24,20,0.04) 0%, transparent 70%);
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: 50%;
+    right: 4rem;
+    transform: translateY(-50%);
+    width: clamp(180px, 22vw, 320px);
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  @media (max-width: 768px) {
+    .hero-logo {
+      width: clamp(120px, 40vw, 180px);
+      right: 1.5rem;
+      opacity: 0.12;
+    }
+  }
+
+  .hero-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 3rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-top: 0.5px solid var(--rule);
+    padding-top: 1.5rem;
+    gap: 2rem;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+    color: var(--ink-mid);
+    max-width: 36ch;
+    line-height: 1.6;
+  }
+
+  .hero-scroll {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+  }
+
+  .hero-scroll::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 0.5px;
+    background: var(--ink-light);
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 7rem 4rem;
+    border-top: 0.5px solid var(--rule);
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--rule);
+    max-width: 4rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-aside h2 {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+
+  .about-aside h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .about-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .fact {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    border-top: 0.5px solid var(--rule);
+  }
+
+  .fact-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.3rem;
+  }
+
+  .fact-value {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.4rem;
+    line-height: 1.8;
+  }
+
+  .about-text p:first-child {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* CATALOGUE */
+  .catalogue-intro {
+    max-width: 50ch;
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 4rem;
+    line-height: 1.5;
+  }
+
+  .catalogue-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 0.5px solid var(--rule);
+    border-left: 0.5px solid var(--rule);
+  }
+
+  .cat-item {
+    padding: 2.5rem;
+    border-right: 0.5px solid var(--rule);
+    border-bottom: 0.5px solid var(--rule);
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .cat-item:hover { background: rgba(44,62,45,0.04); }
+
+  .cat-number {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+  }
+
+  .cat-title {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+    line-height: 1.1;
+  }
+
+  .cat-desc {
+    font-size: 0.85rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* CATALOGUE WORKS LIST */
+  .cat-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .cat-tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.7rem 1.5rem;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    cursor: pointer;
+    margin-bottom: -0.5px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .cat-tab:hover { color: var(--ink-mid); }
+  .cat-tab.active { color: var(--ink); border-bottom-color: var(--ink); }
+  .works-list { margin-top: 0; }
+  .work-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 1.3rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    gap: 2rem;
+  }
+  .work-row:first-child { border-top: 0.5px solid var(--rule); }
+  .work-row.hidden { display: none; }
+  .work-main {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  .work-cat {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    min-width: 5rem;
+  }
+  .work-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .work-instr { font-size: 0.82rem; color: var(--ink-light); }
+  .work-note {
+    width: 100%;
+    font-size: 0.75rem;
+    color: var(--accent);
+    padding-left: calc(5rem + 1rem);
+    margin-top: 0.15rem;
+  }
+  .work-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .work-dur { font-size: 0.82rem; color: var(--ink-mid); min-width: 2rem; }
+  .work-year { font-size: 0.82rem; color: var(--ink-light); min-width: 2.5rem; }
+  .work-listen {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+  .work-listen:hover { opacity: 0.65; }
+
+  /* HIGHLIGHTS */
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .highlight-item {
+    padding: 2rem 0;
+    border-top: 0.5px solid var(--rule);
+  }
+
+  .highlight-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+
+  .highlight-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .highlight-detail {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+
+  /* COMMISSIONS */
+  .commissions-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .commissions-text h2 {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .commissions-text h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .commissions-text p {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--ink);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn:hover {
+    background: var(--accent);
+  }
+
+  .commissions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .commission-row {
+    display: flex;
+    flex-direction: column;
+    padding: 1.4rem 0;
+    border-top: 0.5px solid var(--rule);
+  }
+
+  .commission-row:last-child { border-bottom: 0.5px solid var(--rule); }
+
+  .cr-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.3rem;
+  }
+
+  .cr-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+  }
+
+  .cr-detail {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  #contact .section-label {
+    color: rgba(245,242,237,0.4);
+  }
+
+  #contact .section-label::after {
+    background: rgba(245,242,237,0.15);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-left h2 {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 1.2rem;
+    color: var(--cream);
+  }
+
+  .contact-left h2 em {
+    font-style: italic;
+    color: rgba(245,242,237,0.55);
+  }
+
+  .contact-left p {
+    font-size: 0.92rem;
+    color: rgba(245,242,237,0.6);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 38ch;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 3rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-top: 0.5px solid rgba(245,242,237,0.12);
+    text-decoration: none;
+    color: rgba(245,242,237,0.6);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+
+  .contact-link:last-child { border-bottom: 0.5px solid rgba(245,242,237,0.12); }
+  .contact-link:hover { color: var(--cream); }
+
+  .contact-link span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,242,237,0.3); }
+
+  /* FORM */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,242,237,0.4);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid rgba(245,242,237,0.2);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 0.6rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(245,242,237,0.2);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-bottom-color: rgba(245,242,237,0.6);
+  }
+
+  .form-group textarea {
+    resize: none;
+    min-height: 100px;
+  }
+
+  .btn-light {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--cream);
+    color: var(--ink);
+    border: none;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .btn-light:hover { background: rgba(245,242,237,0.85); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--ink);
+    border-top: 0.5px solid rgba(245,242,237,0.08);
+  }
+
+  footer p {
+    font-size: 0.72rem;
+    color: rgba(245,242,237,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .nav-links a { font-size: 0.68rem; }
+    section { padding: 5rem 1.5rem; }
+    .hero { padding: 0 1.5rem 4rem; }
+    .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
+    .hero-sub { flex-direction: column; align-items: flex-start; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .catalogue-categories { grid-template-columns: 1fr; }
+    .highlights-grid { grid-template-columns: 1fr; }
+    .commissions-wrap { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Aarón Esteve</a>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#catalogue">Catálogo</a></li>
+    <li><a href="#highlights">Noticias</a></li>
+    <li><a href="#commissions">Encargos</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <img src="/circle-logo.png" alt="" class="hero-logo" aria-hidden="true">
+  <p class="hero-label">Compositor — Valencia, España</p>
+  <h1 class="hero-title">Aarón<br><em>Esteve</em></h1>
+  <div class="hero-sub">
+    <p class="hero-desc">Explorando el potencial narrativo del ruido y la transformación de impulsos sonoros en gesto musical.</p>
+    <span class="hero-scroll">Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Sobre mí</p>
+  <div class="about-grid">
+    <div class="about-aside">
+      <h2>La música<br>como <em>gesto</em></h2>
+      <div class="about-facts">
+        <div class="fact">
+          <span class="fact-label">Ubicación</span>
+          <span class="fact-value">Valencia, Spain · Porto, Portugal</span>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Especialización</span>
+          <span class="fact-value">Chamber music · Orchestra · Experimental music</span>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Formación</span>
+          <span class="fact-value">CSMV Joaquín Rodrigo · ESMAE (Máster)</span>
+        </div>
+        <div class="fact">
+          <span class="fact-label">Reconocimientos</span>
+          <span class="fact-value">SGAE Foundation — Honorable Mention, XXXV Concurso Jóvenes Compositores</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p><em>Aarón Esteve (n. 1997, L'Alcúdia de Crespins, Valencia) es un compositor cuyo trabajo explora el potencial narrativo del ruido y la transformación de impulsos sonoros en gesto musical — investigando cómo el material sonoro bruto e inestable puede generar un discurso musical coherente, desde el detalle microscópico de un evento tímbrico hasta la arquitectura orquestal a gran escala.</em></p>
+
+      <p>Inicié mis estudios de Composición en el Conservatorio Superior de Música Joaquín Rodrigo de Valencia, donde estudié con Voro García, Marc García Vitoria, José Luis Escrivà, Héctor Oltra y Carlos Foncuberta. A través del programa Erasmus, pasé un año en Oporto estudiando con Telmo Marques, Dimitrios Andrikopoulos y Ângela Da Ponte, donde actualmente estoy completando un Máster en Composición en ESMAE.</p>
+
+      <p>Mi formación también ha incluido la participación en festivales como MIXTUR y ENSEMS, donde recibí instrucción de Georges Aperghis, Agustí Charles, Joan Magrané, José Manuel López López, Luis Naón y Murilo Cacciatore.</p>
+
+      <p>Mis obras han sido programadas en proyectos como la Gira Nacional 2023 del Plural Ensemble y el XIV Festival de Música Contemporánea SoXXI, y han sido interpretadas en espacios como el Auditorio Nacional Reina Sofía (Madrid), Teatros del Canal (Madrid), Espacio Turina (Sevilla) y Teatro Helena Sá e Costa (Oporto). Fui galardonado con una Mención de Honor en el XXXV Concurso Jóvenes Compositores de la Fundación SGAE.</p>
+
+      <p>Entre los estrenos próximos se encuentran <em>Kuebiko</em> para ensemble, que interpretará el ANTARA Grup del CSMV en el Palau de la Música de València, y <em>manual para un fama</em>, un encargo del Proyecto DME (Portugal) para el Ensemble Orbis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOGUE -->
+<section id="catalogue">
+  <p class="section-label">Catálogo</p>
+  <p class="catalogue-intro">Obras para instrumentos solistas, formaciones de cámara, ensemble y orquesta.</p>
+
+  <!-- Category tabs -->
+  <div class="cat-tabs">
+    <button class="cat-tab active" onclick="filterCat('all')">Todas</button>
+    <button class="cat-tab" onclick="filterCat('solo')">Solo</button>
+    <button class="cat-tab" onclick="filterCat('chamber')">Cámara</button>
+    <button class="cat-tab" onclick="filterCat('ensemble')">Ensemble</button>
+    <button class="cat-tab" onclick="filterCat('orchestra')">Orquesta</button>
+  </div>
+
+  <div class="works-list" id="works-list">
+
+    <!-- SOLO -->
+    <div class="work-row" data-cat="solo">
+      <div class="work-main">
+        <span class="work-cat">Solo</span>
+        <h3 class="work-title">Last Before</h3>
+        <span class="work-instr">Marimba and tape</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">5'</span>
+        <span class="work-year">2025</span>
+        <a class="work-listen" href="https://on.soundcloud.com/FoQALsUdthzEBXmgvK" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="solo">
+      <div class="work-main">
+        <span class="work-cat">Solo</span>
+        <h3 class="work-title">i, malgrat tot, queda</h3>
+        <span class="work-instr">Cello</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">4'</span>
+        <span class="work-year">2024</span>
+        <a class="work-listen" href="https://on.soundcloud.com/DX3NCZfz7If7QNJLRa" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="solo">
+      <div class="work-main">
+        <span class="work-cat">Solo</span>
+        <h3 class="work-title">Articulacions</h3>
+        <span class="work-instr">Piano</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">2'</span>
+        <span class="work-year">2024</span>
+        <a class="work-listen" href="https://on.soundcloud.com/rLqS9icTzVMUL5l8JG" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="solo">
+      <div class="work-main">
+        <span class="work-cat">Solo</span>
+        <h3 class="work-title">With Passion</h3>
+        <span class="work-instr">Recorder and live electronics</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">7'</span>
+        <span class="work-year">2024</span>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="solo">
+      <div class="work-main">
+        <span class="work-cat">Solo</span>
+        <h3 class="work-title">Ahilado</h3>
+        <span class="work-instr">Percussion set</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">17'</span>
+        <span class="work-year">2023</span>
+        <a class="work-listen" href="https://on.soundcloud.com/5BwMLU6yNT25hKLd2I" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="solo">
+      <div class="work-main">
+        <span class="work-cat">Solo</span>
+        <h3 class="work-title">Lexicología Tímbrica</h3>
+        <span class="work-instr">Piano</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">5'</span>
+        <span class="work-year">2023</span>
+        <a class="work-listen" href="https://www.youtube.com/watch?v=flcQA-159Hg" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="solo">
+      <div class="work-main">
+        <span class="work-cat">Solo</span>
+        <h3 class="work-title">Filigrana</h3>
+        <span class="work-instr">Recorder and tape</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">6'</span>
+        <span class="work-year">2022</span>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="solo">
+      <div class="work-main">
+        <span class="work-cat">Solo</span>
+        <h3 class="work-title">Layered Fractal</h3>
+        <span class="work-instr">Clarinet in B♭</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">4'</span>
+        <span class="work-year">2021</span>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="solo">
+      <div class="work-main">
+        <span class="work-cat">Solo</span>
+        <h3 class="work-title">Estudi per a trompeta</h3>
+        <span class="work-instr">Trumpet in C</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">6'</span>
+        <span class="work-year">2020</span>
+        <a class="work-listen" href="https://www.youtube.com/watch?v=WWnXck_BuS8" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <!-- CHAMBER -->
+    <div class="work-row" data-cat="chamber">
+      <div class="work-main">
+        <span class="work-cat">Cámara</span>
+        <h3 class="work-title">Cronopio de bolsillo</h3>
+        <span class="work-instr">Baritone saxophone, accordion, percussion, cello</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">3'</span>
+        <span class="work-year">2025</span>
+        <a class="work-listen" href="https://soundcloud.com/aaron-esteve-795475185/cronopio-de-bolsillo" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="chamber">
+      <div class="work-main">
+        <span class="work-cat">Cámara</span>
+        <h3 class="work-title">Espejismos</h3>
+        <span class="work-instr">Bassoon, percussion, harp, viola</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">4'</span>
+        <span class="work-year">2024</span>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="chamber">
+      <div class="work-main">
+        <span class="work-cat">Cámara</span>
+        <h3 class="work-title">8 comentarios sobre Cortázar</h3>
+        <span class="work-instr">Wind quintet</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">8'</span>
+        <span class="work-year">2024</span>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="chamber">
+      <div class="work-main">
+        <span class="work-cat">Cámara</span>
+        <h3 class="work-title">(des)Concierto</h3>
+        <span class="work-instr">Two out-of-tune horns and piano</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">6'</span>
+        <span class="work-year">2023</span>
+        <a class="work-listen" href="https://soundcloud.com/aaron-esteve-795475185/desconcierto-2023" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="chamber">
+      <div class="work-main">
+        <span class="work-cat">Cámara</span>
+        <h3 class="work-title">Recurrencia</h3>
+        <span class="work-instr">Flute, clarinet in B♭, piano, violin and cello</span>
+        <span class="work-note">Seleccionada — Concurso Jóvenes Compositores 2023, Plural Ensemble</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">7'</span>
+        <span class="work-year">2023</span>
+        <a class="work-listen" href="https://www.youtube.com/watch?v=SLdi0uPH81w" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="chamber">
+      <div class="work-main">
+        <span class="work-cat">Cámara</span>
+        <h3 class="work-title">Trestanto</h3>
+        <span class="work-instr">Clarinet quartet</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">6'</span>
+        <span class="work-year">2022</span>
+        <a class="work-listen" href="https://www.youtube.com/watch?v=vcmdIPEn7zI" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="chamber">
+      <div class="work-main">
+        <span class="work-cat">Cámara</span>
+        <h3 class="work-title">El Golem</h3>
+        <span class="work-instr">Flute, soprano and bassoon</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">13'</span>
+        <span class="work-year">2022</span>
+        <a class="work-listen" href="https://www.youtube.com/watch?v=rUauZKYE-_0" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="chamber">
+      <div class="work-main">
+        <span class="work-cat">Cámara</span>
+        <h3 class="work-title">4 poèmes sur la mort</h3>
+        <span class="work-instr">Clarinet(s), mezzosoprano and harp</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">8'</span>
+        <span class="work-year">2021</span>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="chamber">
+      <div class="work-main">
+        <span class="work-cat">Cámara</span>
+        <h3 class="work-title">Trio Nº1</h3>
+        <span class="work-instr">Euphonium trio</span>
+        <span class="work-note">2º premio — Concurso de Composición de la Asociación Española de Tubas y Bombardinos</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">8'</span>
+        <span class="work-year">2021</span>
+        <a class="work-listen" href="https://www.youtube.com/watch?v=3OXElCsbdII" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <!-- ENSEMBLE -->
+     <div class="work-row" data-cat="ensemble">
+      <div class="work-main">
+        <span class="work-cat">Ensemble</span>
+        <h3 class="work-title">manual para un fama</h3>
+        <span class="work-instr">Flute, saxophone, accordion and percussion</span>
+        <span class="work-note">Estreno próximo — Ensemble Orbis, Encargo de <em>Proyecto DME</em></span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">6'</span>
+        <span class="work-year">2026</span>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="ensemble">
+      <div class="work-main">
+        <span class="work-cat">Ensemble</span>
+        <h3 class="work-title">Kuebiko</h3>
+        <span class="work-instr">2.1.2.1 / 1.1.1.1 / Perc. / 2.1.1.1</span>
+        <span class="work-note">Estreno próximo — ANTARA Grup, Palau de la Música de València - 16.5.26</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">9'</span>
+        <span class="work-year">2025</span>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="ensemble">
+      <div class="work-main">
+        <span class="work-cat">Ensemble</span>
+        <h3 class="work-title">Tres formacions sonores</h3>
+        <span class="work-instr">2.1.2.1 / 2.1.1.1 / 2 Perc. / 2.1.1.1</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">9'</span>
+        <span class="work-year">2025</span>
+        <a class="work-listen" href="https://soundcloud.com/aaron-esteve-795475185/tres-formacions-sonores" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="ensemble">
+      <div class="work-main">
+        <span class="work-cat">Ensemble</span>
+        <h3 class="work-title">Agnosia</h3>
+        <span class="work-instr">Saxophone, piano, percussion, violin and bass</span>
+        <span class="work-note">Finalista — 35º Premio Jóvenes Compositores Fundación SGAE / CNDM</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">8'</span>
+        <span class="work-year">2024</span>
+        <a class="work-listen" href="https://soundcloud.com/aaron-esteve-795475185/agnosia" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="ensemble">
+      <div class="work-main">
+        <span class="work-cat">Ensemble</span>
+        <h3 class="work-title">Un bosc salvatge</h3>
+        <span class="work-instr">Piano and ensemble</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">11'</span>
+        <span class="work-year">2024</span>
+        <a class="work-listen" href="https://on.soundcloud.com/sPcfsFWd6jSPsjLHxs" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="ensemble">
+      <div class="work-main">
+        <span class="work-cat">Ensemble</span>
+        <h3 class="work-title">Vacío Utópico</h3>
+        <span class="work-instr">1.1.1.1 / 0.1.0.0 / Perc. / 2.1.1.1</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">10'</span>
+        <span class="work-year">2023</span>
+        <a class="work-listen" href="https://www.youtube.com/watch?v=mNMKR1gtuPE" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <!-- ORCHESTRA -->
+    <div class="work-row" data-cat="orchestra">
+      <div class="work-main">
+        <span class="work-cat">Orquesta</span>
+        <h3 class="work-title">Sonder</h3>
+        <span class="work-instr">Orquesta</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">9'</span>
+        <span class="work-year">2026</span>
+        <a class="work-listen" href="https://soundcloud.com/aaron-esteve-795475185/sonder-2026-orquestra" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="orchestra">
+      <div class="work-main">
+        <span class="work-cat">Orquesta</span>
+        <h3 class="work-title">Punt 0</h3>
+        <span class="work-instr">2.2.2.2 / 4.2.2.1 / Timpani, 2 Perc., Harp / 2.1.1.1</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">9'</span>
+        <span class="work-year">2023</span>
+        <a class="work-listen" href="https://youtu.be/j3q7M-e-LW4" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+    <div class="work-row" data-cat="orchestra">
+      <div class="work-main">
+        <span class="work-cat">Orquesta</span>
+        <h3 class="work-title">Vita Flumen</h3>
+        <span class="work-instr">2.1.2.1 / 2.1.1.0 / 2 Perc., Pno. / 3.2.2.1</span>
+      </div>
+      <div class="work-meta">
+        <span class="work-dur">8'</span>
+        <span class="work-year">2022</span>
+        <a class="work-listen" href="https://youtu.be/vbqnozFfrZc" target="_blank">Escuchar →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <p class="section-label">Noticias</p>
+  <div class="highlights-grid">
+    <div class="highlight-item">
+      <p class="highlight-tag">Estreno próximo</p>
+      <h3 class="highlight-title">Kuebiko</h3>
+      <p class="highlight-detail">Para ensemble. ANTARA Grup (CSMV) · Palau de la Música de València</p>
+    </div>
+    <div class="highlight-item">
+      <p class="highlight-tag">Encargo · Portugal</p>
+      <h3 class="highlight-title">manual para un fama</h3>
+      <p class="highlight-detail">Encargo para el ensemble Orbis · Projeto DME</p>
+    </div>
+    <div class="highlight-item">
+      <p class="highlight-tag">Premio</p>
+      <h3 class="highlight-title">SGAE Foundation</h3>
+      <p class="highlight-detail">Mención de Honor — XXXV Concurso Jóvenes Compositores</p>
+    </div>
+    <div class="highlight-item">
+      <p class="highlight-tag">PROYECTO PRÓXIMO</p>
+      <h3 class="highlight-title">Micro-opera</h3>
+      <p class="highlight-detail">Obra programada en Amberes · València · Oporto</p>
+    </div>
+    <div class="highlight-item">
+      <p class="highlight-tag">Festival</p>
+      <h3 class="highlight-title">SoXXI</h3>
+      <p class="highlight-detail">XIV Contemporary Music Festival · featured composer</p>
+    </div>
+    <div class="highlight-item">
+      <p class="highlight-tag">NUEVO LANZAMIENTO</p>
+      <h3 class="highlight-title">Sonder (2026)</h3>
+      <p class="highlight-detail">Para orquesta — <a href="https://soundcloud.com/aaron-esteve-795475185/sonder-2026-orquestra" target="_blank" style="color:var(--accent); text-decoration:none;">Escuchar en SoundCloud →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- COMMISSIONS -->
+<section id="commissions">
+  <p class="section-label">Encargos</p>
+  <div class="commissions-wrap">
+    <div class="commissions-text">
+      <h2>Disponible para<br><em>encargos</em></h2>
+      <p>Siempre estoy abierto a nuevos proyectos colaborativos y encargos. Si eres un ensemble, un festival o una institución en busca de nuevo repertorio, no dudes en ponerte en contacto — me encantaría conocer tu proyecto.</p>
+      <a href="#contact" class="btn">Contactar</a>
+    </div>
+    <div class="commissions-list">
+      <div class="commission-row">
+        <span class="cr-tag">Encargo reciente</span>
+        <span class="cr-name">manual para un fama</span>
+        <span class="cr-detail"> Projeto DME · Ensemble Orbis · Portugal</span>
+      </div>
+      <div class="commission-row">
+        <span class="cr-tag">Estreno próximo</span>
+        <span class="cr-name">Kuebiko</span>
+        <span class="cr-detail">ANTARA Grup · Palau de la Música de València</span>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contacto</p>
+  <div class="contact-grid">
+    <div class="contact-left">
+      <h2>Ponte en<br><em>contacto</em></h2>
+      <p>Estoy abierto a encargos, colaboraciones y cualquier proyecto relacionado con la música nueva. Si eres un ensemble, un festival o una institución y quieres trabajar juntos, no dudes en escribirme.</p>
+      <a href="mailto:aaesgan@outlook.com" class="btn-light">Enviar un correo</a>
+      <div class="contact-links">
+        <a href="https://soundcloud.com/aaron-esteve-795475185" target="_blank" class="contact-link">
+          SoundCloud <span>Escuchar →</span>
+        </a>
+        <a href="https://www.youtube.com/@AaronEsteve" target="_blank" class="contact-link">
+          YouTube <span>Ver →</span>
+        </a>
+        <a href="https://www.instagram.com/aaronesteve_" target="_blank" class="contact-link">
+          Instagram <span>Seguir →</span>
+        </a>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Commission, collaboration...">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn-light">Send message</button>
+      <p id="form-msg" style="font-size:0.8rem; color:rgba(245,242,237,0.5); display:none;">Thank you — I'll be in touch soon.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Aarón Esteve</p>
+  <p>Compositor · Valencia, España</p>
+</footer>
+
+<script>
+function filterCat(cat) {
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.work-row').forEach(row => {
+    if (cat === 'all' || row.dataset.cat === cat) {
+      row.classList.remove('hidden');
+    } else {
+      row.classList.add('hidden');
+    }
+  });
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('form-msg').style.display = 'block';
+  e.target.reset();
+}
+</script>
+
+</body>
+</html>
