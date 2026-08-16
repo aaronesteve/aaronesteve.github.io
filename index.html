@@ -6,36 +6,35 @@
 <meta name="description" content="Aarón Esteve — Composer.">
 <title>Aarón Esteve — Composer</title>
 <meta name="robots" content="index, follow">
- <link rel="canonical" href="https://aaronesteve.com">
  <meta name="google-site-verification" content="sw5emHIvbF4jZxcCUYOUKIsN7OCzMoGefb4c08rlet0" />
 <link rel="icon" type="image/png" href="circle-logo.png">
 <link rel="apple-touch-icon" href="circle-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,200;1,9..144,300;1,9..144,400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #f5f2ed;
-    --ink: #1a1814;
-    --ink-mid: #4a4540;
-    --ink-light: #8a8480;
-    --accent: #2c3e2d;
-    --accent-light: #e8ede8;
-    --rule: rgba(26,24,20,0.12);
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Archivo', sans-serif;
+    --cream: #ffffff;
+    --ink: #111111;
+    --ink-mid: #555555;
+    --ink-light: #bbbbbb;
+    --accent: #111111;
+    --accent-light: #f0f0f0;
+    --rule: rgba(0,0,0,0.08);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Work Sans', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     font-family: var(--sans);
     font-weight: 300;
-    line-height: 1.7;
+    line-height: 1.8;
     overflow-x: hidden;
   }
 
@@ -48,7 +47,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.4rem 4rem;
-    background: rgba(245,242,237,0.92);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(8px);
     border-bottom: 0.5px solid var(--rule);
   }
@@ -80,11 +79,12 @@
   }
 
   .nav-links a {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--ink-mid);
+    color: var(--ink-light);
+    font-weight: 300;
     transition: color 0.2s;
   }
 
@@ -133,7 +133,7 @@
     right: 4rem;
     transform: translateY(-50%);
     width: clamp(180px, 22vw, 320px);
-    opacity: 0.18;
+    opacity: 0.10;
     pointer-events: none;
     user-select: none;
     mix-blend-mode: multiply;
@@ -150,19 +150,20 @@
   }
 
   .hero-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--ink-light);
+    font-weight: 300;
     margin-bottom: 1.5rem;
   }
 
   .hero-title {
     font-family: var(--serif);
     font-size: clamp(4rem, 10vw, 9rem);
-    font-weight: 300;
-    line-height: 0.95;
-    letter-spacing: -0.01em;
+    font-weight: 200;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
     color: var(--ink);
     margin-bottom: 3rem;
   }
@@ -182,10 +183,11 @@
   }
 
   .hero-desc {
-    font-size: 0.9rem;
-    color: var(--ink-mid);
+    font-size: 0.75rem;
+    color: var(--ink-light);
     max-width: 36ch;
-    line-height: 1.6;
+    line-height: 1.8;
+    font-weight: 300;
   }
 
   .hero-scroll {
@@ -214,10 +216,11 @@
   }
 
   .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--ink-light);
+    font-weight: 300;
     margin-bottom: 3rem;
     display: flex;
     align-items: center;
@@ -242,8 +245,8 @@
 
   .about-aside h2 {
     font-family: var(--serif);
-    font-size: 3rem;
-    font-weight: 300;
+    font-size: 2.8rem;
+    font-weight: 200;
     line-height: 1.1;
     margin-bottom: 2rem;
   }
@@ -268,32 +271,35 @@
   }
 
   .fact-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-light);
+    font-weight: 300;
     margin-bottom: 0.3rem;
   }
 
   .fact-value {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     color: var(--ink-mid);
+    font-weight: 300;
   }
 
   .about-text p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--ink-mid);
     margin-bottom: 1.4rem;
-    line-height: 1.8;
+    line-height: 1.9;
+    font-weight: 300;
   }
 
   .about-text p:first-child {
     font-family: var(--serif);
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-style: italic;
     color: var(--ink);
-    font-weight: 300;
-    line-height: 1.5;
+    font-weight: 200;
+    line-height: 1.6;
   }
 
   .about-photo-wrap {
@@ -312,11 +318,12 @@
   .catalogue-intro {
     max-width: 50ch;
     font-family: var(--serif);
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     font-style: italic;
     color: var(--ink);
+    font-weight: 200;
     margin-bottom: 4rem;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .catalogue-categories {
@@ -371,9 +378,10 @@
     border-bottom: 2px solid transparent;
     padding: 0.7rem 1.5rem;
     font-family: var(--sans);
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+    font-weight: 300;
     color: var(--ink-light);
     cursor: pointer;
     margin-bottom: -0.5px;
@@ -408,15 +416,15 @@
   }
   .work-title {
     font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.05rem;
+    font-weight: 300;
     color: var(--ink);
   }
-  .work-instr { font-size: 0.82rem; color: var(--ink-light); }
+  .work-instr { font-size: 0.78rem; color: var(--ink-light); font-weight: 300; }
   .work-note {
     width: 100%;
     font-size: 0.75rem;
-    color: var(--accent);
+    color: var(--ink-light);
     padding-left: calc(5rem + 1rem);
     margin-top: 0.15rem;
   }
@@ -430,10 +438,10 @@
   .work-dur { font-size: 0.82rem; color: var(--ink-mid); min-width: 2rem; }
   .work-year { font-size: 0.82rem; color: var(--ink-light); min-width: 2.5rem; }
   .work-listen {
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--ink);
     text-decoration: none;
     white-space: nowrap;
     transition: opacity 0.2s;
@@ -454,25 +462,27 @@
   }
 
   .highlight-tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--ink-light);
+    font-weight: 300;
     margin-bottom: 0.8rem;
   }
 
   .highlight-title {
     font-family: var(--serif);
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 300;
     margin-bottom: 0.5rem;
     line-height: 1.3;
   }
 
   .highlight-detail {
-    font-size: 0.82rem;
-    color: var(--ink-mid);
-    line-height: 1.5;
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    font-weight: 300;
+    line-height: 1.6;
   }
 
   /* COMMISSIONS */
@@ -485,8 +495,8 @@
 
   .commissions-text h2 {
     font-family: var(--serif);
-    font-size: 3.5rem;
-    font-weight: 300;
+    font-size: 3.2rem;
+    font-weight: 200;
     line-height: 1.05;
     margin-bottom: 1.5rem;
   }
@@ -497,26 +507,30 @@
   }
 
   .commissions-text p {
-    font-size: 0.95rem;
-    color: var(--ink-mid);
-    line-height: 1.8;
+    font-size: 0.85rem;
+    color: var(--ink-light);
+    line-height: 1.9;
+    font-weight: 300;
     margin-bottom: 2rem;
   }
 
   .btn {
     display: inline-block;
-    padding: 0.85rem 2rem;
-    background: var(--ink);
-    color: var(--cream);
+    padding: 0.75rem 2rem;
+    background: transparent;
+    color: var(--ink);
     text-decoration: none;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+    font-weight: 400;
+    border: 0.5px solid var(--ink);
     transition: background 0.2s, color 0.2s;
   }
 
   .btn:hover {
-    background: var(--accent);
+    background: var(--ink);
+    color: #fff;
   }
 
   .commissions-list {
@@ -535,17 +549,18 @@
   .commission-row:last-child { border-bottom: 0.5px solid var(--rule); }
 
   .cr-tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink-light);
+    font-weight: 300;
     margin-bottom: 0.3rem;
   }
 
   .cr-name {
     font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.05rem;
+    font-weight: 300;
     margin-bottom: 0.2rem;
   }
 
@@ -585,10 +600,11 @@
   }
 
   .press-tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--ink-light);
+    font-weight: 300;
   }
 
   .press-date {
@@ -598,8 +614,8 @@
 
   .press-title {
     font-family: var(--serif);
-    font-size: 1.15rem;
-    font-weight: 400;
+    font-size: 1.05rem;
+    font-weight: 300;
     color: var(--ink);
     grid-column: 1;
     grid-row: 2;
@@ -635,11 +651,11 @@
   }
 
   #contact .section-label {
-    color: rgba(245,242,237,0.4);
+    color: rgba(255,255,255,0.3);
   }
 
   #contact .section-label::after {
-    background: rgba(245,242,237,0.15);
+    background: rgba(255,255,255,0.1);
   }
 
   .contact-grid {
@@ -651,8 +667,8 @@
 
   .contact-left h2 {
     font-family: var(--serif);
-    font-size: 3.5rem;
-    font-weight: 300;
+    font-size: 3.2rem;
+    font-weight: 200;
     line-height: 1.05;
     margin-bottom: 1.2rem;
     color: var(--cream);
@@ -660,13 +676,14 @@
 
   .contact-left h2 em {
     font-style: italic;
-    color: rgba(245,242,237,0.55);
+    color: rgba(255,255,255,0.4);
   }
 
   .contact-left p {
-    font-size: 0.92rem;
-    color: rgba(245,242,237,0.6);
-    line-height: 1.8;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.9;
+    font-weight: 300;
     margin-bottom: 2.5rem;
     max-width: 38ch;
   }
@@ -683,15 +700,15 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
-    border-top: 0.5px solid rgba(245,242,237,0.12);
+    border-top: 0.5px solid rgba(255,255,255,0.08);
     text-decoration: none;
-    color: rgba(245,242,237,0.6);
+    color: rgba(255,255,255,0.5);
     font-size: 0.82rem;
     letter-spacing: 0.08em;
     transition: color 0.2s;
   }
 
-  .contact-link:last-child { border-bottom: 0.5px solid rgba(245,242,237,0.12); }
+  .contact-link:last-child { border-bottom: 0.5px solid rgba(255,255,255,0.08); }
   .contact-link:hover { color: var(--cream); }
 
   .contact-link span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,242,237,0.3); }
@@ -713,14 +730,14 @@
     font-size: 0.65rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(245,242,237,0.4);
+    color: rgba(255,255,255,0.3);
   }
 
   .form-group input,
   .form-group textarea {
     background: transparent;
     border: none;
-    border-bottom: 0.5px solid rgba(245,242,237,0.2);
+    border-bottom: 0.5px solid rgba(255,255,255,0.15);
     color: var(--cream);
     font-family: var(--sans);
     font-size: 0.9rem;
@@ -733,12 +750,12 @@
 
   .form-group input::placeholder,
   .form-group textarea::placeholder {
-    color: rgba(245,242,237,0.2);
+    color: rgba(255,255,255,0.15);
   }
 
   .form-group input:focus,
   .form-group textarea:focus {
-    border-bottom-color: rgba(245,242,237,0.6);
+    border-bottom-color: rgba(255,255,255,0.5);
   }
 
   .form-group textarea {
@@ -749,7 +766,7 @@
   .btn-light {
     display: inline-block;
     padding: 0.85rem 2rem;
-    background: var(--cream);
+    background: #ffffff;
     color: var(--ink);
     border: none;
     cursor: pointer;
@@ -762,7 +779,7 @@
     margin-top: 0.5rem;
   }
 
-  .btn-light:hover { background: rgba(245,242,237,0.85); }
+  .btn-light:hover { background: rgba(255,255,255,0.85); }
 
   /* FOOTER */
   footer {
@@ -771,7 +788,7 @@
     justify-content: space-between;
     align-items: center;
     background: var(--ink);
-    border-top: 0.5px solid rgba(245,242,237,0.08);
+    border-top: 0.5px solid rgba(255,255,255,0.06);
   }
 
   footer p {
@@ -819,7 +836,7 @@
       left: 0;
       width: 100%;
       height: 100dvh;
-      background: var(--cream);
+      background: #ffffff;
       z-index: 998;
       align-items: center;
       justify-content: center;
@@ -960,7 +977,7 @@
 <div class="tab-panel" id="tab-catalogue">
 <section id="catalogue">
   <p class="section-label">Catalogue</p>
-  <p class="catalogue-intro">Works spanning solo instruments, chamber formations, ensemble, orchestra and acousmatic music.</p>
+  <p class="catalogue-intro">Works spanning solo instruments, chamber formations, ensemble, and orchestra.</p>
 
   <!-- Category tabs -->
   <div class="cat-tabs">
@@ -969,7 +986,6 @@
     <button class="cat-tab" onclick="filterCat('chamber')">Chamber</button>
     <button class="cat-tab" onclick="filterCat('ensemble')">Ensemble</button>
     <button class="cat-tab" onclick="filterCat('orchestra')">Orchestra</button>
-    <button class="cat-tab" onclick="filterCat('acousmatic')">Acousmatic</button>
   </div>
 
   <div class="works-list" id="works-list">
@@ -1118,13 +1134,12 @@
     <div class="work-row" data-cat="chamber">
       <div class="work-main">
         <span class="work-cat">Chamber</span>
-        <h3 class="work-title">8 comentarios</h3>
-        <span class="work-instr">Wind quintet & accordion</span>
-        <span class="work-note">3rd prize on Folefest Accordion Composition Competition - IX edition</span>
+        <h3 class="work-title">8 comentarios sobre Cortázar</h3>
+        <span class="work-instr">Wind quintet</span>
       </div>
       <div class="work-meta">
         <span class="work-dur">8'</span>
-        <span class="work-year">2026</span>
+        <span class="work-year">2024</span>
       </div>
     </div>
 
@@ -1213,10 +1228,10 @@
         <span class="work-cat">Ensemble</span>
         <h3 class="work-title">manual para un fama</h3>
         <span class="work-instr">Flute, saxophone, accordion and percussion</span>
-        <span class="work-note">For Ensemble Orbis, Comissioned by <em>Project DME</em> </span>
+        <span class="work-note">Upcoming premiere — Ensemble Orbis, Comissioned by <em>Project DME</em></span>
       </div>
       <div class="work-meta">
-        <span class="work-dur">7'</span>
+        <span class="work-dur">6'</span>
         <span class="work-year">2026</span>
       </div>
     </div>
@@ -1226,7 +1241,7 @@
         <span class="work-cat">Ensemble</span>
         <h3 class="work-title">Kuebiko</h3>
         <span class="work-instr">2.1.2.1 / 1.1.1.1 / Perc. / 2.1.1.1</span>
-        <span class="work-note"></span>
+        <span class="work-note">Upcoming premiere — ANTARA Grup, Palau de la Música de València - 16.5.26</span>
       </div>
       <div class="work-meta">
         <span class="work-dur">9'</span>
@@ -1326,19 +1341,6 @@
         <a class="work-listen" href="https://youtu.be/vbqnozFfrZc" target="_blank">Listen →</a>
       </div>
     </div>
-   
-       <!-- ACOUSMATIC -->
-    <div class="work-row" data-cat="acousmatic">
-      <div class="work-main">
-        <span class="work-cat">Acousmatic</span>
-        <h3 class="work-title">Consecutio</h3>
-        <span class="work-instr">4 Channels</span>
-      </div>      
-      <div class="work-meta">
-        <span class="work-dur">6'</span>
-        <span class="work-year">2026</span>        
-      </div>
-    </div>
 
   </div>
 </section>
@@ -1351,8 +1353,8 @@
   <div class="highlights-grid">
     <div class="highlight-item">
       <p class="highlight-tag">Upcoming premiere</p>
-      <h3 class="highlight-title">8 comentarios</h3>
-      <p class="highlight-detail">For wind quintet and accordion</p>
+      <h3 class="highlight-title">Kuebiko</h3>
+      <p class="highlight-detail">For ensemble. ANTARA Grup (CSMV) · Palau de la Música de València</p>
     </div>
     <div class="highlight-item">
       <p class="highlight-tag">Commission · Portugal</p>
@@ -1361,13 +1363,13 @@
     </div>
     <div class="highlight-item">
       <p class="highlight-tag">Award</p>
-      <h3 class="highlight-title">Folefest Accordion Composition Competition - IX edition</h3>
-      <p class="highlight-detail">3rd Prize </p>
+      <h3 class="highlight-title">SGAE Foundation</h3>
+      <p class="highlight-detail">Honorable Mention — XXXV Concurso Jóvenes Compositores</p>
     </div>
     <div class="highlight-item">
       <p class="highlight-tag">UPCOMING PROJECT</p>
-      <h3 class="highlight-title">We Will Be The Many</h3>
-      <p class="highlight-detail">Micro-opera featured in Antwerp · València · Porto</p>
+      <h3 class="highlight-title">Micro-opera</h3>
+      <p class="highlight-detail">Work featured in Antwerp · València · Porto</p>
     </div>
     <div class="highlight-item">
       <p class="highlight-tag">Festival</p>
@@ -1401,8 +1403,8 @@
       </div>
       <div class="commission-row">
         <span class="cr-tag">Upcoming premiere</span>
-        <span class="cr-name">8 comentarios</span>
-        <span class="cr-detail">Folefest Accordion Composition Competition - IX edition </span>
+        <span class="cr-name">Kuebiko</span>
+        <span class="cr-detail">ANTARA Grup · Palau de la Música de València</span>
       </div>
       
     </div>
